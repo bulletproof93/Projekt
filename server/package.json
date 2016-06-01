@@ -11,6 +11,9 @@
   "devDependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^2.0.1",
+    "jshint": "^2.9.2",
     "lodash": "^3.10.1",
     "websocket": "^1.0.22"
   }
