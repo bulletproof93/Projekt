@@ -1,0 +1,13 @@
+<div>
+    Nazwa | ilosc | cena
+</div>
+<div ng-repeat="item in cart.items">
+    <span ng-bind="item.name"></span> | 
+    <span ng-bind="item.quantity"></span> |
+    <span ng-bind="item.price"></span> |
+    <br>---------------------------------
+
+</div>
+
+<a href="#/order"> Finalize Order
+</a>
