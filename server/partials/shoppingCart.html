@@ -1,13 +1,33 @@
-<div>
-    Nazwa | ilosc | cena
-</div>
-<div ng-repeat="item in cart.items">
-    <span ng-bind="item.name"></span> | 
-    <span ng-bind="item.quantity"></span> |
-    <span ng-bind="item.price"></span> |
-    <br>---------------------------------
-
-</div>
-
-<a href="#/order"> Finalize Order
-</a>
+<table class="table table-bordered">
+    <tbody>
+        <tr class="well">
+            <td class="tdRight">
+                <b>Produkt</b>
+            </td>
+            <td class="tdRight">
+                <b>Ilość</b>
+            </td>
+            <td class="tdRight">
+                <b>Cena</b>
+            </td>
+            <td></td>
+        </tr>
+        <tr ng-repeat="item in cart.items" class="ng-scope">
+            <td class="ng-binding">
+                <span ng-bind="item.name"></span>
+            </td>
+            <td class="tdCenter ng-binding">
+                <span ng-bind="item.quantity"></span>
+                <a href="" ng-click="cart.addItem(item.id, item.name, item.price, 1)"><button type="button" class="btn btn-primary btn-lg">+</button></a>
+                <a href="" ng-click="cart.addItem(item.id, item.name, item.price, -1)"><button type="button" class="btn btn-primary btn-lg">-</button></a>
+            </td>
+            <td class="ng-binding tdRight">
+                <span ng-bind="item.price"></span>
+            </td>
+            <td><a href="" ng-click="cart.addItem(item.id, item.name, item.price, -10000000)"><button type="button" class="btn btn-danger">X</button></a></td>
+        </tr>
+            
+    </tbody>
+</table>
+<b>Do zapłaty:</b><b ng-bind="cart.getTotalPrice()"></b>PLN</br>
+<a href="#/order"><button type="button" class="btn btn-success">Sfinalizuj</button></a>

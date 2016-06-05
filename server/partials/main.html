@@ -1,24 +1,29 @@
-
-<a href="#/cart" 
-    ng-disabled="cart.getTotalCount() < 1">
- <b ng-bind="cart.getTotalCount()"></b> items, <b ng-bind="cart.getTotalPrice()"></b>
-</a>
-
-
-<div ng-repeat="p in Store">
-{{p.name}} - {{p.price}}
-    <div ng-repeat="ingr_id in p.ingredients track by $index">
-        <div ng-repeat="i in Ingredients track by $index">
-                   <span ng-if="ingr_id == i.id">{{i.label}}</span>  
+<a class="btn btn-primary" ng-href="#/contact" role="button">Kontakt</a>
+<table class="table table-bordered">
+    <tbody>
+        <tr class="well">
+            <td class="tdRight" colspan="8">
+                <b><a href="#/cart" 
+                    ng-disabled="cart.getTotalCount() < 1">
+                    <b ng-bind="cart.getTotalCount()"></b> Sztuk, <b ng-bind="cart.getTotalPrice()"></b>
+                    PLN</a></b>
+                    <a href="" ng-click="cart.clearItems()" style="text-decoration:underline">Usuń z koszyka</a>
+            </td>
+        </tr>
+        <tr ng-repeat="p in Store" class="ng-scope">
+            <td class="ng-binding"><b>{{p.name}}</b>
+                <div ng-repeat="ingr_id in p.ingredients track by $index">
+                <div ng-repeat="i in Ingredients track by $index">
+                   <span ng-if="ingr_id == i.id" style="float:left">{{i.label}}&nbsp;&nbsp;</span>
+            </td> 
+            <td class="tdRight ng-binding">
+                {{p.price}} PLN
+            </td>
+            <td class="tdCenter">
+                <a href="" ng-click="cart.addItem(p.id, p.name, p.price, 1)">Dodaj</a>
+            </td>
+            </div>
+        </tr>
             
-        </div>
-        
-    </div>
-    ----------------	
-
-    <a href="" ng-click="cart.addItem(p.id, p.name, p.price, 1)">
-                add 
-            </a>
-</div>
-
-
+    </tbody>
+</table>
