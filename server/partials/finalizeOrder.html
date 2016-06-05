@@ -1,22 +1,51 @@
-<form name="orderForm">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Podsumowanie zamowienia</h3>
+  </div>
+  <div class="panel-body">
+    
+    <form name="orderForm">
 <div>
-    DELIVERY FORM: <br>
- Phone: <input type="number" name="phoneNumber" ng-model="orderContact.phone" required/><br>
- Street: <input type="text" name="streetName" ng-model="orderContact.street" required/><br>
-Remarks <textarea ng-model="orderContact.remarks"></textarea>
+ <table>
+     <tr>
+         <td>Telefon</td>
+         <td><input type="number" name="phoneNumber" ng-model="orderContact.phone" required/></td>
+     </tr>
+     <tr>
+         <td>Ulica</td>
+         <td><input type="text" name="streetName" ng-model="orderContact.street" required/></td>
+     </tr>
+     <tr>
+         <td>Uwagi</td>
+         <td><textarea ng-model="orderContact.remarks"></textarea></td>
+     </tr>
+ </table> 
+   
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <th>Nazwa Pizzy</th>
+        <th>Ilość</th>
+        <th>Cena za sztuke</th>
+    </tr>   
+    <tr ng-repeat="i in cart.items">
+        <td ng-bind="i.name"></td>
+        <td ng-bind="i.quantity"></td>
+        <td ng-bind="i.price"></td>   
+    </tr>    
     
     
-</div>
-<button><a href="#/cart">back</a></button>
-<div ng-repeat="i in cart.items">
-    <span ng-bind="i.name"></span> | 
-    <span ng-bind="i.quantity"></span> |
-    <span ng-bind="i.price"></span> |
-
-
-</div>
+</table>
+Do zapłaty: <b ng-bind="cart.getTotalPrice()"></b><br><br>
  
-<button type="submit" ng-click="submitOrder(orderForm)">Order</button>
-
+<button class="btn btn-success" type="submit" ng-click="submitOrder(orderForm)">Order</button>
+<a href="#/cart"><button class="btn btn-default">Powrot</button></a>
 </form>
 <span>{{errorMessage}}</span>
+    
+  </div>
+</div>
+
+
+
