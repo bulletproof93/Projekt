@@ -7,6 +7,12 @@ angular.module('myapp').factory('main', function($http) {
         getIngredients : function getIngredients() {
 			return $http.get('/ingredients');
 		},
-        cart: myCart
+        cart: myCart,		
+        sendOrder : function sendOrder(orderData) {
+			return $http.post('/order', orderData);
+	    },
+        getOrderStatus : function getOrderStatus(orderId) {
+			return $http.get('/order/' + orderId);
+		}
 	};
 });

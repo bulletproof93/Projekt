@@ -10,5 +10,15 @@ angular.module('myapp', ['ui.router']).config(function ($stateProvider, $urlRout
         controller: 'MainCtrl',
         templateUrl: "partials/shoppingCart.html"
     })
+     .state('order', {
+        url: "/order",
+        controller: 'OrderCtrl',
+        templateUrl: "partials/finalizeOrder.html"
+    })
+    .state('status', {
+        url: "/status/:orderId",
+        controller: "OrderStatusCtrl",
+        templateUrl: "partials/orderStatus.html"        
+    })
     
 });

@@ -1,0 +1,22 @@
+<form name="orderForm">
+<div>
+    DELIVERY FORM: <br>
+ Phone: <input type="number" name="phoneNumber" ng-model="orderContact.phone" required/><br>
+ Street: <input type="text" name="streetName" ng-model="orderContact.street" required/><br>
+Remarks <textarea ng-model="orderContact.remarks"></textarea>
+    
+    
+</div>
+<button><a href="#/cart">back</a></button>
+<div ng-repeat="i in cart.items">
+    <span ng-bind="i.name"></span> | 
+    <span ng-bind="i.quantity"></span> |
+    <span ng-bind="i.price"></span> |
+
+
+</div>
+ 
+<button type="submit" ng-click="submitOrder(orderForm)">Order</button>
+
+</form>
+<span>{{errorMessage}}</span>
