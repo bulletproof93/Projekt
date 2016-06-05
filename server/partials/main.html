@@ -1,7 +1,24 @@
-<h1> test </h1>
-<tr ng-repeat="pizza in Menu">
-test
-				<td>
-					<div>{{pizza.name}}</div>
-				</td>
-                </tr>
+
+<a href="#/cart" 
+    ng-disabled="cart.getTotalCount() < 1">
+ <b ng-bind="cart.getTotalCount()"></b> items, <b ng-bind="cart.getTotalPrice()"></b>
+</a>
+
+
+<div ng-repeat="p in Store">
+{{p.name}} - {{p.price}}
+    <div ng-repeat="ingr_id in p.ingredients track by $index">
+        <div ng-repeat="i in Ingredients track by $index">
+                   <span ng-if="ingr_id == i.id">{{i.label}}</span>  
+            
+        </div>
+        
+    </div>
+    ----------------	
+
+    <a href="" ng-click="cart.addItem(p.id, p.name, p.price, 1)">
+                add 
+            </a>
+</div>
+
+

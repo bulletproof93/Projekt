@@ -1,6 +1,12 @@
-angular.module('myapp').controller('MainCtrl', function ($scope, menu) {
-    menu.getItems().then(function (data) {
-       $scope.Menu = data.data; 
-    });
-    
+angular.module('myapp').controller('MainCtrl', 
+    function ($scope, main) {
+        main.getItems().then(function (pizzas) {
+            $scope.Store = pizzas.data;
+        });
+        main.getIngredients().then(function (ingredients) {
+            $scope.Ingredients = ingredients.data;
+        });
+        $scope.cart = main.cart;
+        
+
 })
