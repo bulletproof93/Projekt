@@ -13,6 +13,9 @@ angular.module('myapp').factory('main', function($http) {
 	    },
         getOrderStatus : function getOrderStatus(orderId) {
 			return $http.get('/order/' + orderId);
-		}
+		},
+        getContact : function getContact() {
+            return $http.get('/contact');
+        }
 	};
 });

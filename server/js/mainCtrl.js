@@ -6,6 +6,9 @@ angular.module('myapp').controller('MainCtrl',
         main.getIngredients().then(function (ingredients) {
             $scope.Ingredients = ingredients.data;
         });
+        main.getContact().then(function (cont) {
+            $scope.Contact = cont.data;
+        });
         $scope.cart = main.cart;
         
 
